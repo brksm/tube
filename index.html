@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html ng-app="Tube">
+<head>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+	<script type="text/javascript" src="tube.js"></script>
+
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+	<title>Holborn Tube</title>
+</head>
+	<body>
+		<div ng-controller="TubeCtrl as tube">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<h1>Tube status at Holborn Station<span ng-if="refreshing"> – Refreshing now!</span></h1>
+				</div>
+			</div>
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Line</th>
+									<th>Current location</th>
+									<th>Direction</th>
+									<th>ETA (seconds)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in tubes">
+									<td>{{item.line}}</td>
+									<td>{{item.currentLocation}}</td>
+									<td>{{item.direction}}</td>
+									<td>{{item.eta}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+			</div>
+		</div>
+	</body>
+</html>
